@@ -1,0 +1,13 @@
+.mainMenu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-image: url("../images/pexels-photo-476907.jpeg");
+  background-size: cover;
+}
+
+.mainMenuContainer {
+  width: 850px;
+  height: 450px;
+  border: 1px solid black;
+}

@@ -1,14 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import '../sass/allStyles.scss'; // adres do głównego pliku SASS
+import {HashRouter as Router, Link, Route, Switch} from 'react-router-dom';
+import MainPage from './MainPage'
+import '../sass/allStyles.scss';
+import HeaderPage from "./HeaderPage";
+import Main3 from './Main3'
 
-
-document.addEventListener('DOMContentLoaded', function() {
-    ReactDOM.render(
+const App = () => {
+    return (
         <>
-            <App/>
-        </>,
-        document.getElementById('app')
+            <Router>
+                <HeaderPage/>
+                <Switch>
+                    <Route path="/main">
+                        <MainPage/>
+                    </Route>
+                    <Route path="/main3">
+                        <Main3/>
+                    </Route>
+                </Switch>
+            </Router>
+        </>
     )
-})
+}
+
+
+ReactDOM.render(<App/>, document.getElementById("app"));
 
