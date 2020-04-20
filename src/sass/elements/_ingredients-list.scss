@@ -1,0 +1,62 @@
+.mainIngredientsList {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-image: url("../images/photo-1543353071-873f17a7a088.jpg");
+    background-size: cover;
+}
+
+.ingredientsListContainer {
+    width: 50vw;
+    height: 550px;
+    background-color: white;
+    opacity: 90%;
+    box-shadow: 10px 10px 10px 10px #888888;
+    text-align: center;
+}
+.findIngredientsForm{
+    font-size: 1.8em;
+    margin: 30px auto;
+}
+.ingredientsList {
+    width: 90%;
+    height: 410px;
+    margin: 0 auto;
+    overflow: auto;
+    p {
+        font-size: 2em;
+        margin-bottom: 10px;
+    }
+}
+
+.ingredientsTable {
+    font-size: 1.3em;
+    margin: 0 auto;
+    border: 1px solid #1C6EA4;
+    background-color: #EEEEEE;
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    tr:nth-child(even) {
+        background: #D0E4F5;
+    }
+    th, td {
+        border: 1px solid #AAAAAA;
+    }
+}
+
+.ingredientsTableHead {
+    th {
+        text-transform: uppercase;
+        padding: 5px;
+        font-weight: 900;
+        vertical-align: center;
+        background: #1C6EA4
+    }
+}
+.ingredientsTableBody {
+    th {
+        font-weight: 900;
+        padding: 2px;
+    }
+}

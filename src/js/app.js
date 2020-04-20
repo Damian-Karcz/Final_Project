@@ -4,7 +4,11 @@ import {HashRouter as Router, Link, Route, Switch} from 'react-router-dom';
 import MainPage from './MainPage'
 import '../sass/allStyles.scss';
 import HeaderPage from "./HeaderPage";
-import Main3 from './Main3'
+import DishList from './DishList'
+import IngredientsList from "./IngredientsList";
+import MenuList from "./MenuList";
+import AddNewIngredient from "./AddNewIngredient";
+import AddNewDish from "./AddNewDish";
 
 const App = () => {
     return (
@@ -15,8 +19,17 @@ const App = () => {
                     <Route path="/main">
                         <MainPage/>
                     </Route>
-                    <Route path="/main3">
-                        <Main3/>
+                    <Route path="/dishesList">
+                        <DishList/>
+                    </Route>
+                    <Route path="/ingredientsList">
+                        <IngredientsList/>
+                    </Route>
+                    <Route path="/menuList">
+                        <MenuList/>
+                    </Route>
+                    <Route path="/addDish">
+                        <AddNewDish/>
                     </Route>
                 </Switch>
             </Router>

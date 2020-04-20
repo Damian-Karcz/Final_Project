@@ -1,13 +1,42 @@
+
 .mainMenu {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  background-image: url("../images/pexels-photo-476907.jpeg");
+  background-image: url("../images/food_main_background.jpg");
   background-size: cover;
 }
 
 .mainMenuContainer {
-  width: 850px;
-  height: 450px;
+  width: 900px;
+  height: 500px;
   border: 1px solid black;
+  margin-right: 10px;
+}
+
+.addContainer {
+  width: 700px;
+  height: 150px;
+  border: 1px solid red;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.todayMenu {
+  width: 800px;
+  height: 300px;
+  border: 1px solid blue;
+  margin: 0 auto;
+}
+
+.addDishIcon {
+  border-radius: 25px;
+  padding: 15px 20px;
+  text-decoration: none;
+  background: linear-gradient(#555353, #878080);
+  color: white;
+  font-size: 1.5em;
+
 }

@@ -1,0 +1,28 @@
+.mainDishList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../images/Food-Hero-1260x600.jpg");
+  background-size: cover;
+}
+
+.dishesListContainer {
+  width: 1000px;
+  height: 550px;
+  background-color: white;
+  opacity: 70%;
+  text-align: center;
+}
+.findDishForm{
+  font-size: 1.8em;
+  margin: 30px auto;
+}
+.dishesList {
+  width: 800px;
+  height: 400px;
+  margin: 0 auto;
+  border: 1px solid black;
+  p {
+    font-size: 2em;
+  }
+}

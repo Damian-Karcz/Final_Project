@@ -1,0 +1,28 @@
+.mainMenuList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../images/food-background.jpg");
+  background-size: cover;
+}
+
+.menuListContainer {
+  width: 1000px;
+  height: 550px;
+  background-color: white;
+  opacity: 70%;
+  text-align: center;
+}
+.findMenuForm{
+  font-size: 1.8em;
+  margin: 30px auto;
+}
+.menuList {
+  width: 800px;
+  height: 400px;
+  margin: 0 auto;
+  border: 1px solid black;
+  p {
+    font-size: 2em;
+  }
+}

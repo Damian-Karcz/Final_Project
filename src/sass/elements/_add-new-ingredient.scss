@@ -1,0 +1,47 @@
+.addIngredientContainer{
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.addNewIngredients {
+  width: 35vw;
+  height: 250px;
+  margin: 0 auto;
+  background-color: white;
+  opacity: 90%;
+  box-shadow: 10px 10px 10px 10px #888888;
+  display: flex;
+  justify-content: center;
+}
+
+.addIngredientForm{
+  font-size: 1.6em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .input-question {
+    width: 70%;
+    margin-bottom: 1em;
+  }
+  input[type="submit"] {
+    width: 200px;
+    margin-top: 1em;
+  }
+  h1 {
+    margin-bottom: 15px;
+    color: #1C6EA4;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    font-weight: bolder;
+  }
+}
+
+.input-question-sec {
+  width: 20%;
+  margin-bottom: 1em;
+}
+
+.messageStyle {
+  color: red;
+  font-size: 0.7em;
+}

@@ -1,0 +1,115 @@
+{
+  "ingredients": [
+    {
+      "id": 1,
+      "name": "marchewka",
+      "kcal": "41,3",
+      "allergen": "nie"
+    },
+    {
+      "id": 2,
+      "name": "mąka pszenna",
+      "kcal": "364",
+      "allergen": "tak"
+    },
+    {
+      "id": 3,
+      "name": "mleko",
+      "kcal": "42.3",
+      "allergen": "tak"
+    },
+    {
+      "id": 4,
+      "name": "makaron spaghetti",
+      "kcal": "157.7",
+      "allergen": "tak"
+    },
+    {
+      "id": 5,
+      "name": "jajka",
+      "kcal": "51.6",
+      "allergen": "tak"
+    },
+    {
+      "id": 6,
+      "name": "ser żółty Gouda",
+      "kcal": "316",
+      "allergen": "tak"
+    },
+    {
+      "id": 7,
+      "name": "wołowina ",
+      "kcal": "250.5",
+      "allergen": "nie"
+    },
+    {
+      "id": 8,
+      "name": "koncentrat pomidorowy 40%",
+      "kcal": "82",
+      "allergen": "nie"
+    },
+    {
+      "id": 9,
+      "name": "cebula żółta",
+      "kcal": "39.7",
+      "allergen": "nie"
+    },
+    {
+      "id": 10,
+      "name": "czosnek",
+      "kcal": "149",
+      "allergen": "nie"
+    },
+    {
+      "id": 11,
+      "name": "tymianek",
+      "kcal": "",
+      "allergen": "nie"
+    },
+    {
+      "id": 12,
+      "name": "oregano",
+      "kcal": "",
+      "allergen": "nie"
+    },
+    {
+      "id": 13,
+      "name": "oliwa z oliwek",
+      "kcal": "884",
+      "allergen": "nie"
+    },
+    {
+      "id": 14,
+      "name": "pieprz",
+      "kcal": "",
+      "allergen": "nie"
+    },
+    {
+      "id": 15,
+      "name": "pasta pomidorowa",
+      "kcal": "82",
+      "allergen": "nie"
+    },
+    {
+      "id": 16,
+      "name": "ryż biały",
+      "kcal": "357",
+      "allergen": "nie"
+    }
+  ],
+  "dishes": [
+    {
+      "id": 1,
+      "name": "",
+      "description": "",
+      "ingredients": [
+        {
+        "ingredient": "",
+        "quantity": ""
+      }
+        ],
+      "vege": "",
+      "category": ""
+    }
+  ]
+}

@@ -9,10 +9,10 @@ export default function HeaderPage() {
                     <h1>Moje Menu</h1>
                     <nav className="headerNav">
                         <ul className="navLis">
-                            <li><Link to="/main">Home</Link></li>
-                            <li><Link to="/main3">Main3</Link></li>
-                            <li><Link to="/pricing">Cennik</Link></li>
-                            <li><Link to="/pricing">Cennik</Link></li>
+                            <li><Link to="/main">Strona Główna</Link></li>
+                            <li><Link to="/dishesList">Lista Dań</Link></li>
+                            <li><Link to="/ingredientsList">Lista Składników</Link></li>
+                            <li><Link to="/menuList">Moje Menu</Link></li>
                         </ul>
                     </nav>
                 </header>
