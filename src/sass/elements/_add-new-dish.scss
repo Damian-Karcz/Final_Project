@@ -1,7 +1,13 @@
+.newDishMain {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-image: url("../images/images.jpg");
+  background-size: cover;
+}
+
 .newDishContainer {
-  width: 900px;
-  height: 550px;
-  border: 1px solid black;
+  width: 70%;
   margin: 0 auto;
   background-color: white;
   opacity: 90%;
@@ -11,7 +17,7 @@
 .newDishForm {
   font-size: 1.5em;
   h1 {
-    color: #1C6EA4;
+    color: map_get($colors, mainColor);
     margin: 10px auto;
     text-transform: uppercase;
     font-size: 2em;
@@ -20,37 +26,62 @@
 }
 
 .dishData {
-  width: 60%;
-  border: 1px solid red;
+  width: 70%;
   margin: 0 auto;
   display: grid;
   input[type="text"] {
-    width: 400px;
+    width: 450px;
     margin-left: 10px;
     margin-bottom: 10px;
   }
   textarea {
-    width: 398px;
-    margin-left: 35px;
+    width: 448px;
+    margin-left: 29px;
     resize: none;
   }
   select {
-    margin: 20px 0 10px 0;
+    margin: 10px 0 10px 0;
   }
   input[type="checkbox"] {
     width: 1.5em;
     height: 1.5em;
-
+  }
+  input[type="submit"] {
+    border: none;
+    background-color: map_get($colors, mainColor);
+    opacity: 90%;
+    font-size: 0.6em;
+    color: white;
+    margin-left: 10px;
   }
 }
 
 .detailDishContainer {
   width: 90%;
-  border: 1px solid blue;
   margin: 10px auto;
   display: flex;
   justify-content: space-around;
   font-size: 0.8em;
+  button {
+    font-size: 25px;
+    color: map_get($colors, mainColor);
+    width: 0;
+    height: 0;
+    border: none;
+    padding: 0;
+    margin-left: 10px;
+  }
+  input[type="text"]{
+    width: 215px;
+  }
+  textarea {
+    resize: none;
+    width: 260px;
+  }
+  input[type="number"] {
+    width: 50px;
+    margin-top: 10px;
+  }
 }
 
 .dishIngredients, .instructionDish {
@@ -58,9 +89,21 @@
   width: 370px;
   ul {
     border: 1px solid green;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin-bottom: 15px;
+    margin-top: 25px;
     height: 200px;
     font-size: 0.8em;
+    list-style: decimal;
+    overflow: auto;
+  }
+}
+
+.dishIngredients {
+  button {
+    vertical-align: sub;
+  }
+  ul {
+    margin-top: 10px;
+    list-style: disc;
   }
 }

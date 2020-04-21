@@ -2,7 +2,7 @@ import React,{useState, useEffect} from 'react';
 import {useAPI} from "./useApi";
 
 export default function AddNewIngredient() {
-    const {ingredients, fetchAllIngredients, addTask} = useAPI();
+    const {ingredients, fetchAllIngredients} = useAPI();
     const [newIngredient, setNewIngredient] = useState({name:"", kcal:"",allergen:"nie",});
     const [message, setMessage] = useState("")
 

@@ -95,21 +95,61 @@
       "name": "ryż biały",
       "kcal": "357",
       "allergen": "nie"
+    },
+    {
+      "id": 17,
+      "name": "papryka czerwona",
+      "kcal": "20",
+      "allergen": "nie"
+    },
+    {
+      "id": 18,
+      "name": "mąka pszenna",
+      "kcal": "99",
+      "allergen": "tak"
     }
   ],
   "dishes": [
     {
       "id": 1,
-      "name": "",
-      "description": "",
+      "name": "Spaghetti",
+      "description": "pyszne ",
+      "category": "danie główne",
+      "vege": false,
       "ingredients": [
-        {
-        "ingredient": "",
-        "quantity": ""
-      }
-        ],
-      "vege": "",
-      "category": ""
+        [
+          {
+            "name": "marchewka",
+            "quantity": "10"
+          },
+          {
+            "name": "koncentrat pomidorowy 40%",
+            "quantity": "20"
+          },
+          {
+            "name": "oregano",
+            "quantity": "1"
+          },
+          {
+            "name": "makaron spaghetti",
+            "quantity": "100"
+          },
+          {
+            "name": "pieprz",
+            "quantity": "1"
+          },
+          {
+            "name": "wołowina",
+            "quantity": "100"
+          }
+        ]
+      ],
+      "instruction": [
+        [
+          "jakaś 1 instrukcja ",
+          "jakaś 2 instrukcja"
+        ]
+      ]
     }
   ]
 }

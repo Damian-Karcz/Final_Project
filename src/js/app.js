@@ -16,9 +16,10 @@ const App = () => {
             <Router>
                 <HeaderPage/>
                 <Switch>
-                    <Route path="/main">
+                    <Route exact path="/">
                         <MainPage/>
                     </Route>
+
                     <Route path="/dishesList">
                         <DishList/>
                     </Route>
