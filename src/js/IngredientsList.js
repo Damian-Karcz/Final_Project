@@ -15,6 +15,13 @@ export default function IngredientsList() {
         setFilterText(event.target.value);
     };
 
+    const handleDelete = (props) => {
+        const API = "http://localhost:3000";
+        fetch(`${API}/ingredients/${props}`, {
+            method: "DELETE"
+        })
+            .then(fetchAllIngredients)
+    }
     return (
         <>
             <main className="mainIngredientsList mainPages">
@@ -40,12 +47,14 @@ export default function IngredientsList() {
                             <tbody className="ingredientsTableBody">
                             {
                                 ingredients.filter(el=> el.name.includes(filterText)).map(ingredient => (
+                                    <>
                                     <tr key={ingredient.id}>
                                         <th>{ingredient.name}</th>
                                         <td>{ingredient.kcal}</td>
                                         <td>{ingredient.allergen}</td>
-                                        <td>- edit</td>
+                                        <td><button onClick={() => handleDelete(ingredient.id)} className="far fa-trash-alt deleteButton"/></td>
                                     </tr>
+                                    </>
                                 ))
                             }
                             </tbody>

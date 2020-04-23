@@ -6,7 +6,7 @@ export default function AddNewDish() {
     const [dishData, setDishData] = useState({name:"", description:"", category:"", isVegan:false})
     const [dishInstructions, setDishInstructions] = useState([]);
     const [instructionName, setInstructionName] = useState("");
-    const [dishIngredients, setDishIngredients] = useState([])
+    const [dishIngredients, setDishIngredients] = useState([]);
     const [ingredient, setIngredient] = useState({name:"", quantity:""})
     const [message, setMessage] = useState("");
 
@@ -18,6 +18,7 @@ export default function AddNewDish() {
     useEffect(() => {
         fetchAllDishes();
     },[])
+
 
     //Dodanie podstawowych informacji do state
     const handleDishDataChange = ({target}) => {
@@ -63,8 +64,8 @@ export default function AddNewDish() {
             description: dishData.description,
             category: dishData.category,
             vege: dishData.isVegan,
-            ingredients: [dishIngredients],
-            instruction: [dishInstructions]
+            ingredientsList: dishIngredients,
+            instruction: dishInstructions
         };
         fetch(`http://localhost:3000/dishes`, {
             method: "POST",
@@ -74,7 +75,8 @@ export default function AddNewDish() {
             }
         })
             .then(response => fetchAllDishes());
-        setMessage("Danie zostało dodane")
+        setMessage("Danie zostało dodane");
+        setDishData({name:"", description:"", category:"", isVegan:false});
     }
 
 

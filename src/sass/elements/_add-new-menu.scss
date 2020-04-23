@@ -1,0 +1,85 @@
+.newMenuMain {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-image: url("../images/photo-1535227798054-e4373ef3795a.jpg");
+  background-size: cover;
+}
+
+.newMenuDiv {
+  width: 60%;
+  height: 550px;
+  margin: 0 auto;
+  background-color: white;
+  opacity: 90%;
+  box-shadow: 10px 10px 10px 10px #888888;
+  display: flex;
+  justify-content: center;
+  flex-direction: row-reverse;
+  align-items: center;
+  input[type="submit"] {
+    text-transform: uppercase;
+    margin-left: 40px;
+    font-size: 1em;
+    vertical-align: bottom;
+    color: white;
+    padding: 5px;
+  }
+}
+
+.newMenuForm {
+  width: 94%;
+  height: 450px;
+  font-size: 1.5em;
+  margin-left: 10px;
+  h1 {
+    color: map_get($colors, mainColor);
+    margin: 10px auto;
+    text-transform: uppercase;
+    font-size: 1.6em;
+    font-weight: bolder;
+  }
+  input[type="text"] {
+    font-size: 0.7em;
+    width: 7em;
+    color: map_get($colors, mainColor);
+  }
+}
+
+.menuDetails {
+  display: grid;
+  width: 90%;
+  margin: 0 auto;
+  textarea{
+    resize: none;
+    width: 450px;
+    margin-left: 10px;
+  }
+  button {
+    font-size: 25px;
+    color: map_get($colors, mainColor);
+    width: 0;
+    height: 0;
+    border: none;
+    padding: 0;
+    margin-left: 10px;
+  }
+  h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+}
+.returnDiv {
+  border: 1px dotted gray;
+  width: 700px;
+  height: 250px;
+  overflow: auto;
+  button {
+    margin-left: 2px;
+    color: red;
+  }
+  .oneDish {
+    margin-bottom: 5px;
+  }
+}

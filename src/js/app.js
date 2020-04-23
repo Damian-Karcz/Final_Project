@@ -9,6 +9,9 @@ import IngredientsList from "./IngredientsList";
 import MenuList from "./MenuList";
 import AddNewIngredient from "./AddNewIngredient";
 import AddNewDish from "./AddNewDish";
+import AddNewMenu from "./AddNewMenu";
+import EditDish from "./EditDish";
+import EditMenu from "./EditMenu";
 
 const App = () => {
     return (
@@ -31,6 +34,15 @@ const App = () => {
                     </Route>
                     <Route path="/addDish">
                         <AddNewDish/>
+                    </Route>
+                    <Route path="/addMenu">
+                        <AddNewMenu/>
+                    </Route>
+                    <Route path="/editDish/:id">
+                        <EditDish/>
+                    </Route>
+                    <Route path="/editMenu/:id">
+                        <EditMenu/>
                     </Route>
                 </Switch>
             </Router>

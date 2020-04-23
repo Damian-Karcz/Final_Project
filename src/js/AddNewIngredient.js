@@ -52,8 +52,9 @@ export default function AddNewIngredient() {
                                 <option>tak</option>
                             </select>
                         </label>
-                        <input type="submit" value="Zapisz składnik"/>
                         {message && <p className="messageStyle">{message}</p>}
+                        <input type="submit" value="Zapisz składnik"/>
+
                     </form>
                 </div>
             </div>

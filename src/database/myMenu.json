@@ -1,33 +1,15 @@
 {
   "ingredients": [
     {
-      "id": 1,
-      "name": "marchewka",
-      "kcal": "41,3",
-      "allergen": "nie"
-    },
-    {
       "id": 2,
       "name": "mąka pszenna",
       "kcal": "364",
       "allergen": "tak"
     },
     {
-      "id": 3,
-      "name": "mleko",
-      "kcal": "42.3",
-      "allergen": "tak"
-    },
-    {
       "id": 4,
       "name": "makaron spaghetti",
       "kcal": "157.7",
-      "allergen": "tak"
-    },
-    {
-      "id": 5,
-      "name": "jajka",
-      "kcal": "51.6",
       "allergen": "tak"
     },
     {
@@ -107,48 +89,182 @@
       "name": "mąka pszenna",
       "kcal": "99",
       "allergen": "tak"
+    },
+    {
+      "id": 19,
+      "name": "płatki kukurydziane ",
+      "kcal": "357.1",
+      "allergen": "nie"
+    },
+    {
+      "id": 20,
+      "name": "chleb słonecznikowy",
+      "kcal": "245",
+      "allergen": "tak"
+    },
+    {
+      "id": 21,
+      "name": "masło ",
+      "kcal": "716.8",
+      "allergen": "tak"
+    },
+    {
+      "id": 22,
+      "name": "szynka z indyka",
+      "kcal": "126.2",
+      "allergen": "tak"
+    },
+    {
+      "id": 23,
+      "name": "sałata zielona",
+      "kcal": "13",
+      "allergen": "nie"
+    },
+    {
+      "id": 24,
+      "name": "rzodkiewka",
+      "kcal": "15.8",
+      "allergen": "nie"
+    },
+    {
+      "id": 25,
+      "name": "miód ",
+      "kcal": "304",
+      "allergen": "nie"
+    },
+    {
+      "id": 26,
+      "name": "kalafior",
+      "kcal": "24.9",
+      "allergen": "nie"
+    },
+    {
+      "id": 27,
+      "name": "makaron muszelki ",
+      "kcal": "131",
+      "allergen": "tak"
+    },
+    {
+      "id": 28,
+      "name": "śmietana 12%",
+      "kcal": "195.5",
+      "allergen": "tak"
+    },
+    {
+      "id": 29,
+      "name": "seler korzeń",
+      "kcal": "42",
+      "allergen": "tak"
+    },
+    {
+      "id": 30,
+      "name": "pietruszka korzeń",
+      "kcal": "36.1",
+      "allergen": "nie"
+    },
+    {
+      "id": 31,
+      "name": "pomidor koktajlowy",
+      "kcal": "20",
+      "allergen": "nie"
     }
   ],
   "dishes": [
     {
-      "id": 1,
-      "name": "Spaghetti",
-      "description": "pyszne ",
-      "category": "danie główne",
-      "vege": false,
-      "ingredients": [
-        [
-          {
-            "name": "marchewka",
-            "quantity": "10"
-          },
-          {
-            "name": "koncentrat pomidorowy 40%",
-            "quantity": "20"
-          },
-          {
-            "name": "oregano",
-            "quantity": "1"
-          },
-          {
-            "name": "makaron spaghetti",
-            "quantity": "100"
-          },
-          {
-            "name": "pieprz",
-            "quantity": "1"
-          },
-          {
-            "name": "wołowina",
-            "quantity": "100"
-          }
-        ]
+      "id": 4,
+      "name": "nowa nazwa dania",
+      "description": "jakiś opis dania",
+      "category": "śniadanie",
+      "ingredientsList": [],
+      "instruction": [
+        ""
+      ]
+    },
+    {
+      "id": 5,
+      "name": "nowe danie 1 dodane",
+      "description": "nowe danie  dodane",
+      "category": "II śniadanie",
+      "vege": true,
+      "ingredientsList": [
+        {
+          "name": "oregano",
+          "quantity": "22"
+        },
+        {
+          "name": "ryż biały",
+          "quantity": "2222"
+        },
+        {
+          "name": "oregano",
+          "quantity": "22"
+        },
+        {
+          "name": "ryż biały",
+          "quantity": "2222"
+        }
       ],
       "instruction": [
-        [
-          "jakaś 1 instrukcja ",
-          "jakaś 2 instrukcja"
-        ]
+        "pierwsza instrukcja",
+        "druga instrukcja ",
+        "trzecia instrukcja ",
+        "dodane",
+        "dodanedodane"
+      ]
+    }
+  ],
+  "menu": [
+    {
+      "id": 1,
+      "date": "23/04/2020",
+      "description": "Menu na czwartek, goście",
+      "dishes": [
+        {
+          "category": "śniadanie",
+          "dish": "sałatka jarzynowa"
+        },
+        {
+          "category": "zupa",
+          "dish": "sałatka jarzynowa"
+        },
+        {
+          "category": "danie główne",
+          "dish": "sałatka jarzynowa"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "date": "23/04/2020",
+      "description": "Menu na czwartek, goście",
+      "dishes": [
+        {
+          "category": "śniadanie",
+          "dish": "sałatka jarzynowa"
+        },
+        {
+          "category": "zupa",
+          "dish": "sałatka jarzynowa"
+        },
+        {
+          "category": "danie główne",
+          "dish": "sałatka jarzynowa"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "date": "20/05.2020",
+      "description": "menu na przyjęcie",
+      "dishes": [
+        {
+          "category": "przystawka",
+          "dish": "sałatka jarzynowa"
+        },
+        {
+          "category": "zupa",
+          "dish": "sałatka jarzynowa"
+        }
       ]
     }
   ]

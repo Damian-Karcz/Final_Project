@@ -6,12 +6,12 @@ export default function HeaderPage() {
         <>
             <Router>
                 <header className="headerPage">
-                    <h1>Moje Menu</h1>
+                    <h1>MojeMenu</h1>
                     <nav className="headerNav">
                         <ul className="navLis">
                             <li><Link to="/">Strona Główna</Link></li>
-                            <li><Link to="/dishesList">Lista Dań</Link></li>
                             <li><Link to="/ingredientsList">Lista Składników</Link></li>
+                            <li><Link to="/dishesList">Lista Dań</Link></li>
                             <li><Link to="/menuList">Moje Menu</Link></li>
                         </ul>
                     </nav>

@@ -10,19 +10,43 @@
   width: 1000px;
   height: 550px;
   background-color: white;
-  opacity: 70%;
+  opacity: 90%;
   text-align: center;
 }
 .findDishForm{
   font-size: 1.8em;
   margin: 30px auto;
+  a {
+    font-size: 35px;
+    color: map_get($colors, mainColor);
+    width: 0;
+    height: 0;
+    border: none;
+    padding: 0;
+    text-decoration: none;
+  }
 }
 .dishesList {
   width: 800px;
   height: 400px;
   margin: 0 auto;
-  border: 1px solid black;
-  p {
-    font-size: 2em;
+  .ingredientsTable {
+    width: 90%;
+  }
+  .thVeg {
+    width: 20px;
   }
 }
+
+.deleteButton {
+  margin-right: 30px;
+}
+.buttons {
+  button:last-child {
+    width: 0;
+    height: 0;
+    border: none;
+    padding: 0;
+  }
+}
+

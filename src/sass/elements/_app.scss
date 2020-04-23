@@ -5,3 +5,53 @@ body {
 .mainPages {
   height: 90vh;
 }
+
+form {
+  font-family: 'Open Sans', sans-serif;
+}
+
+input, textarea, select {
+  border-radius: 10px;
+  font-family: 'Baloo Bhaina 2', cursive;
+  outline: 0;
+}
+
+.deleteButton {
+  color: red;
+  width: 0;
+  height: 0;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.editButton {
+  width: 0;
+  height: 0;
+  border: none;
+  padding: 0;
+  color: green;
+  cursor: pointer;
+}
+
+.vegeIcon {
+  color: green;
+}
+input[type="submit"] {
+  border: none;
+  background-color: map_get($colors, mainColor);
+  font-size: 0.6em;
+  color: white;
+  margin-left: 20px;
+  border-radius: 30px;
+  box-shadow: 0 9px #999;
+
+}
+input[type="submit"]:hover {
+  background-color: #00aeff;
+}
+input[type="submit"]:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}

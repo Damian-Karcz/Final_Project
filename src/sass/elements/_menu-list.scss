@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("../images/food-background.jpg");
+  background-image: url("../images/cute-food-background-kawaii-cartoons-vector-20294906.jpg");
   background-size: cover;
 }
 
@@ -10,19 +10,60 @@
   width: 1000px;
   height: 550px;
   background-color: white;
-  opacity: 70%;
+  opacity: 90%;
   text-align: center;
 }
 .findMenuForm{
   font-size: 1.8em;
   margin: 30px auto;
+  a{
+    font-size: 30px;
+    color: map_get($colors, mainColor);
+    width: 0;
+    height: 0;
+    border: none;
+    padding: 0;
+    margin-left: 5px;
+    text-decoration: none;
+  }
 }
+
 .menuList {
   width: 800px;
   height: 400px;
   margin: 0 auto;
   border: 1px solid black;
   p {
-    font-size: 2em;
+    font-size: 2.5em;
+  }
+  tr {
+    border: 3px solid black
+  }
+}
+
+.ingredientsTableBody {
+
+}
+
+.divCat {
+  display: flex;
+  justify-content: space-between;
+  background-color: #9a9797;
+  margin-bottom: 1px;
+  span {
+    width: 50%;
+    border: 1px solid #AAAAAA;
+  }
+  &.divCat:nth-child(even) {
+    background: #0a88ad;
+  }
+}
+.divDish {
+  border: 1px solid blue;
+}
+
+.actionButtonsMenu {
+  .deleteButton, .editButton {
+    font-size: 20px;
   }
 }
