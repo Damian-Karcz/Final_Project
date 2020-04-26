@@ -103,7 +103,8 @@ export default function AddNewMenu() {
                                                             <option>{elem.name}</option>
                                                         ))
                                                     }
-                                                </select><button onClick={e => handleDelete(index,e)} className="far fa-trash-alt"></button>
+                                                </select>
+                                                <button onClick={e => handleDelete(index,e)} className="far fa-trash-alt"></button>
                                             </label>
                                         </div>
                                     )

@@ -6,8 +6,10 @@ export default function AddNewDish() {
     const [dishData, setDishData] = useState({name:"", description:"", category:"", isVegan:false})
     const [dishInstructions, setDishInstructions] = useState([]);
     const [instructionName, setInstructionName] = useState("");
+
     const [dishIngredients, setDishIngredients] = useState([]);
     const [ingredient, setIngredient] = useState({name:"", quantity:""})
+
     const [message, setMessage] = useState("");
 
 
@@ -18,6 +20,10 @@ export default function AddNewDish() {
     useEffect(() => {
         fetchAllDishes();
     },[])
+
+    const handleDeleteClick = (index) => {
+        setDishIngredients(prev => prev.filter((item, i) => index !== i ))
+    }
 
 
     //Dodanie podstawowych informacji do state
@@ -33,6 +39,7 @@ export default function AddNewDish() {
     const handleDishInstructions = e => {
         e.preventDefault();
         setDishInstructions( prev => [...prev, instructionName]);
+        setInstructionName("")
     }
     //END
 
@@ -43,7 +50,10 @@ export default function AddNewDish() {
     const handleDishIngredients = (e) => {
         e.preventDefault();
         setDishIngredients(prev => [...prev, {name: ingredient.name, quantity: ingredient.quantity}])
+        setIngredient({name:"", quantity:""})
     }
+
+
 
     // wysyłanie danych na server
     const handleSubmit = (event) => {
@@ -77,6 +87,8 @@ export default function AddNewDish() {
             .then(response => fetchAllDishes());
         setMessage("Danie zostało dodane");
         setDishData({name:"", description:"", category:"", isVegan:false});
+        setDishInstructions([])
+        setDishIngredients([])
     }
 
 
@@ -131,8 +143,11 @@ export default function AddNewDish() {
 
                                 <ul>
                                     {
-                                        dishIngredients.map(el=> (
+                                        dishIngredients.map((el,index)=> (
+                                            <>
                                             <li key={`${el.name}-${el.quantity}`}>{el.name} {el.quantity}/g</li>
+                                                <a onClick={e => handleDeleteClick(index,e)}>usuń</a>
+                                            </>
                                         ))
                                     }
 

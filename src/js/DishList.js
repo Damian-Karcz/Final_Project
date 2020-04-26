@@ -5,6 +5,7 @@ import {useAPI} from "./useApi";
 export default function DishList() {
     const {ingredients, fetchAllIngredients, dishes, fetchAllDishes} = useAPI();
     const [filterText, setFilterText] = useState("");
+    const [filterCategory, setFilterCategory] = useState("")
 
     useEffect(()=> {
         fetchAllDishes();
@@ -13,6 +14,9 @@ export default function DishList() {
     const handleChange = event => {
         setFilterText(event.target.value);
     };
+    const handleChangeCategory = event => {
+        setFilterCategory(event.target.value);
+    }
     const handleDelete = (props) => {
         const API = "http://localhost:3000";
         fetch(`${API}/dishes/${props}`, {
@@ -30,9 +34,20 @@ export default function DishList() {
                         <label>
                             Wyszukaj swoje danie:
                             <input type="text" value={filterText} placeholder="Wpisz nazwę dania" onChange={handleChange} />
+                            <label>Kategoria</label>
+                            <select value={filterCategory} onChange={handleChangeCategory}>
+                                <option></option>
+                                <option>śniadanie</option>
+                                <option>II śniadanie</option>
+                                <option>przystawka</option>
+                                <option>zupa</option>
+                                <option>danie główne</option>
+                                <option>deser</option>
+                            </select>
                             lub dodaj nowe <a href="/#/addDish" className="fas fa-plus-square"></a>
                         </label>
                     </form>
+                    <h1>Lista dań</h1>
                     <div className="dishesList">
                         <table className="ingredientsTable">
                             <thead className="ingredientsTableHead">
@@ -45,7 +60,7 @@ export default function DishList() {
                             </thead>
                             <tbody className="ingredientsTableBody">
                             {
-                                dishes.filter(element=> element.name.includes(filterText)).map(el => (
+                                dishes.filter(element=> element.name.substr(0, filterText.length).toLowerCase().includes(filterText) && element.category.substr(0, filterCategory.length).includes(filterCategory)).map(el => (
                                     <tr key={el.id}>
                                         <th>{el.name}</th>
                                         <td>{el.category}</td>

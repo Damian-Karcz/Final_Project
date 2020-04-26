@@ -39,14 +39,14 @@ export default function IngredientsList() {
                             <thead className="ingredientsTableHead">
                                 <tr>
                                     <th>Nazwa składnika</th>
-                                    <th>Kalorie</th>
+                                    <th>KCAL/100g</th>
                                     <th>Alergen</th>
                                     <th>Akcje</th>
                                 </tr>
                             </thead>
                             <tbody className="ingredientsTableBody">
                             {
-                                ingredients.filter(el=> el.name.includes(filterText)).map(ingredient => (
+                                ingredients.filter(el=> el.name.substr(0, filterText.length).toLowerCase().includes(filterText.toLowerCase())).map(ingredient => (
                                     <>
                                     <tr key={ingredient.id}>
                                         <th>{ingredient.name}</th>

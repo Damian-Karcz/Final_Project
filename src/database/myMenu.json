@@ -167,103 +167,233 @@
       "name": "pomidor koktajlowy",
       "kcal": "20",
       "allergen": "nie"
+    },
+    {
+      "id": 33,
+      "name": "marchew",
+      "kcal": "26",
+      "allergen": "nie"
+    },
+    {
+      "id": 34,
+      "name": "por",
+      "kcal": "15",
+      "allergen": "nie"
+    },
+    {
+      "id": 35,
+      "name": "kapusta włoska",
+      "kcal": "10",
+      "allergen": "nie"
+    },
+    {
+      "id": 36,
+      "name": "liść laurowy",
+      "kcal": "",
+      "allergen": "nie"
+    },
+    {
+      "id": 37,
+      "name": "ziele angielskie",
+      "kcal": "",
+      "allergen": "nie"
+    },
+    {
+      "id": 39,
+      "name": "ziemniaki",
+      "kcal": "150",
+      "allergen": "nie"
+    },
+    {
+      "id": 40,
+      "name": "filet z kurczaka",
+      "kcal": "400",
+      "allergen": "nie"
+    },
+    {
+      "id": 41,
+      "name": "panierka",
+      "kcal": "25",
+      "allergen": "tak"
+    },
+    {
+      "id": 42,
+      "name": "śmietana kremówka 36%",
+      "kcal": "200",
+      "allergen": "tak"
+    },
+    {
+      "id": 43,
+      "name": "cukier",
+      "kcal": "",
+      "allergen": "nie"
+    },
+    {
+      "id": 44,
+      "name": "laska wanilii",
+      "kcal": "",
+      "allergen": "nie"
+    },
+    {
+      "id": 45,
+      "name": "truskawki ",
+      "kcal": "10",
+      "allergen": "nie"
+    },
+    {
+      "id": 46,
+      "name": "mąka pszenna",
+      "kcal": "122",
+      "allergen": "tak"
     }
   ],
   "dishes": [
     {
-      "id": 4,
-      "name": "nowa nazwa dania",
-      "description": "jakiś opis dania",
-      "category": "śniadanie",
-      "ingredientsList": [],
-      "instruction": [
-        ""
-      ]
-    },
-    {
-      "id": 5,
-      "name": "nowe danie 1 dodane",
-      "description": "nowe danie  dodane",
-      "category": "II śniadanie",
-      "vege": true,
+      "id": 6,
+      "name": "Rosół wołowo-drobiowy z makaronem ",
+      "description": "Rosół podawany w białych miskach ",
+      "category": "zupa",
+      "vege": false,
       "ingredientsList": [
         {
-          "name": "oregano",
-          "quantity": "22"
+          "name": "marchew",
+          "quantity": "10"
         },
         {
-          "name": "ryż biały",
-          "quantity": "2222"
+          "name": "por",
+          "quantity": "10"
         },
         {
-          "name": "oregano",
-          "quantity": "22"
+          "name": "kapusta włoska",
+          "quantity": "10"
         },
         {
-          "name": "ryż biały",
-          "quantity": "2222"
+          "name": "liść laurowy",
+          "quantity": "10"
+        },
+        {
+          "name": "porcja rosołowa",
+          "quantity": "50"
+        },
+        {
+          "name": "seler korzeń",
+          "quantity": "50"
+        },
+        {
+          "name": "wołowina",
+          "quantity": "50"
+        },
+        {
+          "name": "pietruszka korzeń",
+          "quantity": "50"
         }
       ],
       "instruction": [
-        "pierwsza instrukcja",
-        "druga instrukcja ",
-        "trzecia instrukcja ",
-        "dodane",
-        "dodanedodane"
+        "Obrać wszystkie warzywa",
+        "Mięso przepłukać pod bieżącą wodą ",
+        "Wszystkie składniki wrzucić do rondla z wodą ",
+        "Gotować na małym ogniu",
+        "Doprawić do smaku "
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Kotlet de Volaille ",
+      "description": "Ser można zastąpić masłem",
+      "category": "danie główne",
+      "vege": false,
+      "ingredientsList": [
+        {
+          "name": "filet z kurczaka",
+          "quantity": "100"
+        },
+        {
+          "name": "ser żółty Gouda",
+          "quantity": "10"
+        },
+        {
+          "name": "panierka",
+          "quantity": "10"
+        },
+        {
+          "name": "pieprz",
+          "quantity": ""
+        }
+      ],
+      "instruction": [
+        "Mięso umyć i osuszyć ",
+        "Piersi kurczaka włożyć pomiędzy przeźroczystą folię i roztłuc tłuczkiem na kotlety. Na każdej piersi ułożyć wałeczek z serem i zwinąć roladki, dokładnie podwijając końce. Spiąć za pomocą wykałaczek."
+      ]
+    },
+    {
+      "id": 8,
+      "name": "creme brulee",
+      "description": "Do karmelizacji cukru najlepiej użyć specjalnego palnika zmiana",
+      "category": "deser",
+      "ingredientsList": [
+        {
+          "name": "papryka czerwona",
+          "quantity": "12"
+        },
+        {
+          "name": "papryka czerwona",
+          "quantity": "12"
+        }
+      ],
+      "instruction": [
+        "W rondelku na małym ogniu zagotować śmietankę z dodatkiem cukru i wyłuskanych łyżeczką ziarenek z przeciętej wzdłuż laski wanilii. Gdy śmietanka zacznie się gotować na brzegach, odstawić z ognia i przestudzić.",
+        "Żółtka ubijać mikserem przez około pół minuty (nie na puszystą masę). Dolewać ciepłą śmietanę, po łyżce lub cienkim strumieniem, cały czas miksując na małych obrotach miksera bez ubijania kremu. Ma on być gładki i błyszczący.",
+        "ekarnik nagrzać do 100 stopni C. Foremki do zapiekania napełnić masą wlewając ją przez sitko. Foremki postawić na blaszce do pieczenia. "
+      ]
+    },
+    {
+      "id": 9,
+      "name": "sałatka jarzynowa",
+      "description": "królowa świąt",
+      "category": "przystawka",
+      "vege": false,
+      "ingredientsList": [],
+      "instruction": [
+        "pierwsza"
       ]
     }
   ],
   "menu": [
     {
       "id": 1,
-      "date": "23/04/2020",
-      "description": "Menu na czwartek, goście",
+      "date": "03/05/2020",
+      "description": "Komunia dla 40 osób ",
       "dishes": [
         {
-          "category": "śniadanie",
-          "dish": "sałatka jarzynowa"
-        },
-        {
           "category": "zupa",
-          "dish": "sałatka jarzynowa"
+          "dish": "Rosół wołowo-drobiowy z makaronem"
         },
         {
           "category": "danie główne",
-          "dish": "sałatka jarzynowa"
+          "dish": "Kotlet de Volaille"
+        },
+        {
+          "category": "deser",
+          "dish": "creme brulee"
         }
       ]
     },
     {
       "id": 2,
-      "date": "23/04/2020",
-      "description": "Menu na czwartek, goście",
+      "date": "04.05.2020",
+      "description": "komunia ",
       "dishes": [
         {
-          "category": "śniadanie",
-          "dish": "sałatka jarzynowa"
-        },
-        {
           "category": "zupa",
-          "dish": "sałatka jarzynowa"
+          "dish": "Rosół wołowo-drobiowy z makaronem"
         },
         {
           "category": "danie główne",
-          "dish": "sałatka jarzynowa"
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "date": "20/05.2020",
-      "description": "menu na przyjęcie",
-      "dishes": [
-        {
-          "category": "przystawka",
-          "dish": "sałatka jarzynowa"
+          "dish": "Kotlet de Volaille"
         },
         {
-          "category": "zupa",
-          "dish": "sałatka jarzynowa"
+          "category": "deser",
+          "dish": "creme brulee"
         }
       ]
     }
