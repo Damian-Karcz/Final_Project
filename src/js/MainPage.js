@@ -9,8 +9,8 @@ export default function MainPage() {
                 <div className="mainMenuContainer">
                     <div className="addContainer">
                         <Link className="mainButtons" to="/ingredientsList"><span>Dodaj składnik</span></Link>
-                        <button className="mainButtons"><a href="/#/addDish"><span>Dodaj danie</span></a></button>
-                        <button className="mainButtons"><a href="/#/addMenu"><span>Dodaj menu</span></a></button>
+                        <Link className="mainButtons" to="/addDish"><span>Dodaj danie</span></Link>
+                        <Link className="mainButtons" to="/addMenu"><span>Dodaj menu</span></Link>
 
                     </div>
                     <div className="todayMenu">

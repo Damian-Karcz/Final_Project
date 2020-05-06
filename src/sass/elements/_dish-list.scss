@@ -31,15 +31,20 @@
 }
 .dishesList {
   width: 800px;
-  height: 400px;
+  height: 380px;
   margin: 0 auto;
   .ingredientsTable {
     width: 90%;
   }
   .thVeg {
     width: 20px;
+    margin-left: 10px;
+  }
+  .vegeIcon {
+    margin-left: 10px;
   }
 }
+
 
 .deleteButton {
   margin-right: 30px;

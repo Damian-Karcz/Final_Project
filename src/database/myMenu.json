@@ -356,6 +356,22 @@
       "instruction": [
         "pierwsza"
       ]
+    },
+    {
+      "id": 10,
+      "name": "nowy wege",
+      "description": "opis musi mieć 10 znaków",
+      "category": "II śniadanie",
+      "vege": true,
+      "ingredientsList": [
+        {
+          "name": "papryka czerwona",
+          "quantity": "22"
+        }
+      ],
+      "instruction": [
+        "aaaa"
+      ]
     }
   ],
   "menu": [

@@ -76,6 +76,14 @@ export default function EditDish() {
         setMessage("Danie zostało edytowane");
     }
 
+    const handleDeleteClick = (index) => {
+        setDishIngredientsEdit(prev => prev.filter((item, i) => index !== i ))
+    }
+
+    const handleDeleteClickInstr = (index) => {
+        setDishInstructionsEdit(prev => prev.filter((item, i) => index !== i ))
+    }
+
     return (
         <>
             <main className="newDishMain mainPages">
@@ -129,12 +137,12 @@ export default function EditDish() {
                                 <ul>
                                     {
                                         dishDataEdit.ingredientsList && dishDataEdit.ingredientsList.map(el=> (
-                                            <li key={`${el.name}-${el.quantity}`}>{el.name} {el.quantity}/g</li>
+                                            <li key={`${el.name}-${el.quantity}`}>{el.name} {el.quantity}/g <a className="fas fa-backspace backspaceButton "></a></li>
                                         ))
                                     }
                                     {
-                                        dishIngredientsEdit.map(el=> (
-                                            <li key={`${el.name}-${el.quantity}`}>{el.name} {el.quantity}/g</li>
+                                        dishIngredientsEdit.map((el, index)=> (
+                                            <li key={`${el.name}-${el.quantity}`}>{el.name} {el.quantity}/g <a onClick={e => handleDeleteClick(index,e)} className="fas fa-backspace backspaceButton "></a></li>
                                         ))
                                     }
                                 </ul>
@@ -148,13 +156,15 @@ export default function EditDish() {
                                 <ul>
                                     {
                                         dishDataEdit.instruction && dishDataEdit.instruction.map(el => (
-                                            <li>{el}</li>
+                                            <li>{el} <a className="fas fa-backspace backspaceButton "></a></li>
                                         ))
                                     }
                                     {
-                                        dishInstructionsEdit.map(instruction => (
+                                        dishInstructionsEdit.map((instruction, index) => (
                                             <li key={instruction.id}>
                                                 {instruction}
+                                                <a onClick={e => handleDeleteClickInstr(index,e)} className="fas fa-backspace backspaceButton "></a>
+
                                             </li>
                                         ))
                                     }

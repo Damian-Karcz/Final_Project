@@ -25,6 +25,10 @@ export default function AddNewDish() {
         setDishIngredients(prev => prev.filter((item, i) => index !== i ))
     }
 
+    const handleDeleteClickInstr = (index) => {
+        setDishInstructions(prev => prev.filter((item, i) => index !== i ))
+    }
+
 
     //Dodanie podstawowych informacji do state
     const handleDishDataChange = ({target}) => {
@@ -145,8 +149,7 @@ export default function AddNewDish() {
                                     {
                                         dishIngredients.map((el,index)=> (
                                             <>
-                                            <li key={`${el.name}-${el.quantity}`}>{el.name} {el.quantity}/g</li>
-                                                <a onClick={e => handleDeleteClick(index,e)}>usuń</a>
+                                            <li key={`${el.name}-${el.quantity}`}>{el.name} {el.quantity}/g <a onClick={e => handleDeleteClick(index,e)} className="fas fa-backspace backspaceButton "></a></li>
                                             </>
                                         ))
                                     }
@@ -161,9 +164,10 @@ export default function AddNewDish() {
 
                                     <ul>
                                         {
-                                            dishInstructions.map(instruction => (
+                                            dishInstructions.map((instruction,index) => (
                                                 <li key={instruction.id}>
                                                     {instruction}
+                                                    <a onClick={e => handleDeleteClickInstr(index,e)} className="fas fa-backspace backspaceButton "></a>
                                                 </li>
                                             ))
                                         }

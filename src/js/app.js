@@ -22,7 +22,6 @@ const App = () => {
                     <Route exact path="/">
                         <MainPage/>
                     </Route>
-
                     <Route path="/dishesList">
                         <DishList/>
                     </Route>

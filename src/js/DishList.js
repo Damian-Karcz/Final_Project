@@ -54,7 +54,7 @@ export default function DishList() {
                             <tr>
                                 <th>Nazwa dania</th>
                                 <th>Kategoria</th>
-                                <th className="thVeg">Wege?</th>
+                                {/*<th className="thVeg">Wege?</th>*/}
                                 <th>Akcje</th>
                             </tr>
                             </thead>
@@ -62,9 +62,9 @@ export default function DishList() {
                             {
                                 dishes.filter(element=> element.name.substr(0, filterText.length).toLowerCase().includes(filterText) && element.category.substr(0, filterCategory.length).includes(filterCategory)).map(el => (
                                     <tr key={el.id}>
-                                        <th>{el.name}</th>
+                                        <th>{el.name} {el.vege ===true? <i className="fas fa-seedling vegeIcon"></i>:""}</th>
                                         <td>{el.category}</td>
-                                        <td>{el.vege ===true? <i className="fas fa-seedling vegeIcon"></i>:""}</td>
+                                        {/*<td>{el.vege ===true? <i className="fas fa-seedling vegeIcon"></i>:""}</td>*/}
                                         <td className="buttons">
                                             <button onClick={() => handleDelete(el.id)} className="far fa-trash-alt deleteButton"/>
                                             <Link className="far fa-edit editButton" to={`/editDish/${el.id}`}></Link>
@@ -75,6 +75,7 @@ export default function DishList() {
                             </tbody>
                         </table>
                     </div>
+                    <p>*<i className="fas fa-seedling vegeIcon"></i> - danie wegańskie</p>
                 </div>
             </main>
         </>
