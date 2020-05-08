@@ -31,7 +31,7 @@ export default function MenuList() {
                         <label>
                             Wyszukaj swoje Menu po dacie:
                             <input value={filterText} onChange={handleChange} type="text" />
-                            lub dodaj nowy <a href="/#/addMenu" className="fas fa-plus-square"></a>
+                            lub dodaj nowy <Link to="/addMenu" className="fas fa-plus-square"></Link>
                         </label>
                     </form>
                     <div className="menuList">

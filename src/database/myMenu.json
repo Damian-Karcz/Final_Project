@@ -359,18 +359,32 @@
     },
     {
       "id": 10,
-      "name": "nowy wege",
-      "description": "opis musi mieć 10 znaków",
-      "category": "II śniadanie",
+      "name": "nowe na próbe",
+      "description": "nowe danie ",
+      "category": "przystawka",
       "vege": true,
       "ingredientsList": [
         {
           "name": "papryka czerwona",
+          "quantity": "11"
+        },
+        {
+          "name": "ryż biały",
           "quantity": "22"
+        },
+        {
+          "name": "oregano",
+          "quantity": "44"
+        },
+        {
+          "name": "mąka pszenna",
+          "quantity": "33"
         }
       ],
       "instruction": [
-        "aaaa"
+        "asf",
+        "asdfasdf",
+        "asdfsadf"
       ]
     }
   ],

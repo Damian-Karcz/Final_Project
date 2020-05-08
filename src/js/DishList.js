@@ -44,7 +44,7 @@ export default function DishList() {
                                 <option>danie główne</option>
                                 <option>deser</option>
                             </select>
-                            lub dodaj nowe <a href="/#/addDish" className="fas fa-plus-square"></a>
+                            lub dodaj nowe <Link to="/addDish" className="fas fa-plus-square"></Link>
                         </label>
                     </form>
                     <h1>Lista dań</h1>

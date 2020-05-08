@@ -62,7 +62,7 @@ export default function EditDish() {
             description: dishDataEdit.description,
             category: dishDataEdit.category,
             vege: dishDataEdit.isVegan,
-            ingredientsList: [...dishIngredientsEdit, ...dishIngredientsEdit],
+            ingredientsList: [...dishDataEdit.ingredientsList, ...dishIngredientsEdit],
             instruction: [...dishDataEdit.instruction, ...dishInstructionsEdit]
         };
         fetch(`http://localhost:3000/dishes/${id}`, {
@@ -79,6 +79,16 @@ export default function EditDish() {
     const handleDeleteClick = (index) => {
         setDishIngredientsEdit(prev => prev.filter((item, i) => index !== i ))
     }
+
+    // const handleDeleteEditClick = (props, index) => {
+    //     // const API = "http://localhost:3000";
+    //     // fetch(`${API}/dishes/${props}/${index}`, {
+    //     //     method: "DELETE"
+    //     // })
+    //     //     .then(fetchAllDishes)
+    //
+    //     setDishDataEdit(...prev => {prev.filter((item, i) => index !== i )})
+    // }
 
     const handleDeleteClickInstr = (index) => {
         setDishInstructionsEdit(prev => prev.filter((item, i) => index !== i ))
@@ -137,7 +147,7 @@ export default function EditDish() {
                                 <ul>
                                     {
                                         dishDataEdit.ingredientsList && dishDataEdit.ingredientsList.map(el=> (
-                                            <li key={`${el.name}-${el.quantity}`}>{el.name} {el.quantity}/g <a className="fas fa-backspace backspaceButton "></a></li>
+                                            <li key={`${el.name}-${el.quantity}`}>{el.name} {el.quantity}/g <a  className="fas fa-backspace backspaceButton "></a></li>
                                         ))
                                     }
                                     {
