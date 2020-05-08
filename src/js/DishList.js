@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import {useAPI} from "./useApi";
 
 export default function DishList() {
-    const {ingredients, fetchAllIngredients, dishes, fetchAllDishes} = useAPI();
+    const {dishes, fetchAllDishes} = useAPI();
     const [filterText, setFilterText] = useState("");
     const [filterCategory, setFilterCategory] = useState("")
 
@@ -44,7 +44,7 @@ export default function DishList() {
                                 <option>danie główne</option>
                                 <option>deser</option>
                             </select>
-                            lub dodaj nowe <Link to="/addDish" className="fas fa-plus-square"></Link>
+                            lub dodaj nowe <Link className="fas fa-plus-square" to="/addDish"></Link>
                         </label>
                     </form>
                     <h1>Lista dań</h1>
