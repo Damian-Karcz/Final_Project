@@ -1,26 +1,36 @@
 import React,{useState, useEffect} from 'react';
 import {useAPI} from "./useApi";
 import {Link} from "react-router-dom";
+import firebase from "firebase";
 
 
 export default function MenuList() {
-    const {ingredients, fetchAllIngredients, menu, fetchAllMenu} = useAPI();
+    const {allMenu, menu, fetchAllMenu} = useAPI();
     const [filterText, setFilterText] = useState("");
-
-    useEffect(()=> {
-        fetchAllMenu();
-    },[]);
+    //
+    // useEffect(()=> {
+    //     fetchAllMenu();
+    // },[]);
 
     const handleChange = event => {
         setFilterText(event.target.value);
     };
 
-    const handleDelete = (props) => {
-        const API = "http://localhost:3000";
-        fetch(`${API}/menu/${props}`, {
-            method: "DELETE"
-        })
-            .then(fetchAllMenu)
+    // const handleDelete = (props) => {
+    //     const API = "http://localhost:3000";
+    //     fetch(`${API}/menu/${props}`, {
+    //         method: "DELETE"
+    //     })
+    //         .then(fetchAllMenu)
+    // }
+    const db = firebase.firestore();
+    const handleDelete = (date) => {
+        db.collection("Menu").doc(`${date}`).delete().then(function() {
+            alert("Document usunięty poprawnie")
+            history.push("/ingredientsList");
+        }).catch(function(error) {
+            alert("Błąd");
+        });
     }
 
     return (
@@ -48,7 +58,7 @@ export default function MenuList() {
                                     </thead>
                                     <tbody className="ingredientsTableBody">
                                     {
-                                        menu.filter(el=> el.date.includes(filterText)).map(el => (
+                                        allMenu.filter(el=> el.date.includes(filterText)).map(el => (
                                             <tr key={el.id}>
                                                 <th>{el.date}</th>
                                                 <td className="tdList">{el.dishes.map(el=> (
@@ -65,8 +75,8 @@ export default function MenuList() {
                                                 ))}
                                                 </td>
                                                 <td className="actionButtonsMenu">
-                                                    <button onClick={() => handleDelete(el.id)} className="far fa-trash-alt deleteButton"/>
-                                                    <Link className="far fa-edit editButton" to={`/editMenu/${el.id}`}></Link>
+                                                    <button onClick={() => handleDelete(el.date)} className="far fa-trash-alt deleteButton"/>
+                                                    <Link className="far fa-edit editButton" to={`/editMenu/${el.date}`}></Link>
                                                 </td>
                                             </tr>
                                         ))

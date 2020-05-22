@@ -1,15 +1,18 @@
 import React,{useState, useEffect} from 'react';
 import {Link} from 'react-router-dom'
 import {useAPI} from "./useApi";
+import firebase from "firebase";
+import { useHistory } from 'react-router-dom';
 
 export default function DishList() {
-    const {dishes, fetchAllDishes} = useAPI();
+    const {allDishes, setAllDishes} = useAPI();
     const [filterText, setFilterText] = useState("");
     const [filterCategory, setFilterCategory] = useState("")
 
-    useEffect(()=> {
-        fetchAllDishes();
-    },[]);
+    // useEffect(()=> {
+    //     fetchAllDishes();
+    // },[]);
+    const history = useHistory();
 
     const handleChange = event => {
         setFilterText(event.target.value);
@@ -17,14 +20,26 @@ export default function DishList() {
     const handleChangeCategory = event => {
         setFilterCategory(event.target.value);
     }
-    const handleDelete = (props) => {
-        const API = "http://localhost:3000";
-        fetch(`${API}/dishes/${props}`, {
-            method: "DELETE"
-        })
-            .then(fetchAllDishes)
-    }
+    // const handleDelete = (props) => {
+    //     const API = "http://localhost:3000";
+    //     fetch(`${API}/dishes/${props}`, {
+    //         method: "DELETE"
+    //     })
+    //         .then(fetchAllDishes)
+    // }
 
+    const db = firebase.firestore();
+    const handleDelete = (name1) => {
+        db.collection("Dishes").doc(`${name1}`).delete().then(function() {
+            alert("Document successfully deleted!")
+                .then( () => {
+                    const all = allDishes.filter( dish => dish.name !== name )
+                    setAllDishes(all)
+                })
+        }).catch(function(error) {
+            console.error("Error removing document: ", error);
+        });
+    }
 
     return (
         <>
@@ -60,14 +75,14 @@ export default function DishList() {
                             </thead>
                             <tbody className="ingredientsTableBody">
                             {
-                                dishes.filter(element=> element.name.substr(0, filterText.length).toLowerCase().includes(filterText) && element.category.substr(0, filterCategory.length).includes(filterCategory)).map(el => (
+                                allDishes.filter(element=> element.name.substr(0, filterText.length).toLowerCase().includes(filterText) && element.category.substr(0, filterCategory.length).includes(filterCategory)).map(el => (
                                     <tr key={el.id}>
                                         <th>{el.name} {el.vege ===true? <i className="fas fa-seedling vegeIcon"></i>:""}</th>
                                         <td>{el.category}</td>
                                         {/*<td>{el.vege ===true? <i className="fas fa-seedling vegeIcon"></i>:""}</td>*/}
                                         <td className="buttons">
-                                            <button onClick={() => handleDelete(el.id)} className="far fa-trash-alt deleteButton"/>
-                                            <Link className="far fa-edit editButton" to={`/editDish/${el.id}`}></Link>
+                                            <button onClick={ () => handleDelete(el.name)} className="far fa-trash-alt deleteButton"/>
+                                            <Link className="far fa-edit editButton" to={`/editDish/${el.name}`}></Link>
                                         </td>
                                     </tr>
                                 ))

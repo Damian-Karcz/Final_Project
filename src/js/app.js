@@ -12,6 +12,7 @@ import AddNewDish from "./AddNewDish";
 import AddNewMenu from "./AddNewMenu";
 import EditDish from "./EditDish";
 import EditMenu from "./EditMenu";
+import Firebase, { FirebaseContext } from "./Firebase"
 
 const App = () => {
     return (
@@ -50,5 +51,9 @@ const App = () => {
 }
 
 
-ReactDOM.render(<App/>, document.getElementById("app"));
+ReactDOM.render(
+    <FirebaseContext.Provider value={new Firebase()}>
+        <App/>,
+    </FirebaseContext.Provider>,
+    document.getElementById("app"));
 

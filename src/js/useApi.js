@@ -1,4 +1,6 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
+import firebase from "firebase";
+
 
 
 export const useAPI = () => {
@@ -6,7 +8,40 @@ export const useAPI = () => {
     const [dishes, setDishes] = useState([]);
     const [menu, setMenu] = useState([]);
     const [oneDish, setOneDish] = useState([]);
+    const [allIngredients, setAllIngredients] = useState([])
+    const [allDishes, setAllDishes] = useState([])
+    const [allMenu, setAllMenu] = useState([])
 
+    const db = firebase.firestore();
+    useEffect( ( ) => {
+        db.collection("Ingredients").get().then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                // console.log(`${doc.id} => ${doc.data()}`);
+                setAllIngredients( prev => ([...prev, doc.data()]))
+            });
+        });
+    },[])
+
+    useEffect( ( ) => {
+        db.collection("Dishes").get().then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                // console.log(`${doc.id} => ${doc.data()}`);
+                setAllDishes( prev => ([...prev, doc.data()]))
+            });
+        });
+    },[])
+
+    useEffect( ( ) => {
+        db.collection("Menu").get().then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                // console.log(`${doc.id} => ${doc.data()}`);
+                setAllMenu( prev => ([...prev, doc.data()]))
+            });
+        });
+    },[])
+
+
+    ///////////JSONServer
     const fetchAllIngredients = () => {
         fetch('http://localhost:3000/ingredients')
             .then(res => res.json())
@@ -22,14 +57,11 @@ export const useAPI = () => {
         })
             .then(response => fetchAllIngredients());
     }
-
     const fetchAllDishes = () => {
         fetch('http://localhost:3000/dishes')
             .then(res => res.json())
             .then(data => setDishes(data));
     };
-
-
     const addDish = (dishes) => {
         fetch(`http://localhost:3000/dishes`, {
             method: "POST",
@@ -39,21 +71,16 @@ export const useAPI = () => {
             }
         })
             .then(response => fetchAllIngredients());
-    }
-
-
+    };
     const fetchAllMenu = () => {
         fetch('http://localhost:3000/menu')
             .then(res => res.json())
             .then(data => setMenu(data));
     };
-
-
     const fetchDish = (id) => {
         return fetch(`http://localhost:3000/dishes/${id}`)
             .then(res => res.json())
     };
-
     const fetchOneMenu = (id) => {
         return fetch(`http://localhost:3000/menu/${id}`)
             .then(res => res.json())
@@ -71,5 +98,10 @@ export const useAPI = () => {
         fetchDish,
         oneDish,
         fetchOneMenu,
+        allIngredients,
+        allDishes,
+        setAllDishes,
+        setAllMenu,
+        allMenu
     }
 };

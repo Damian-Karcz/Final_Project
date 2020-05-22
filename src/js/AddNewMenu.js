@@ -1,22 +1,23 @@
 import React,{useState, useEffect} from 'react';
 import {useAPI} from "./useApi";
-
+import firebase from "firebase";
+import { useHistory } from 'react-router-dom';
 
 export default function AddNewMenu() {
-    const {ingredients, fetchAllIngredients, fetchAllDishes, dishes, fetchAllMenu} = useAPI();
+    const {allDishes} = useAPI();
     const [menu, setMenu] = useState([]);
-
     const [date, setDate] = useState("");
     const [description, setDescription] = useState("");
+    const history = useHistory()
+    const db = firebase.firestore();
 
-    useEffect(() => {
-        fetchAllDishes();
-    },[])
+    // useEffect(() => {
+    //     fetchAllDishes();
+    // },[])
 
     const handleDelete = (index) => {
         setMenu(prev => prev.filter((item, i) => index !== i ))
     }
-
     const handleChangeDate = e => {
         e.preventDefault()
         setDate(e.target.value)
@@ -25,54 +26,64 @@ export default function AddNewMenu() {
         e.preventDefault()
         setDescription(e.target.value)
     }
-
     const handleClickAddDish =(e) => {
         e.preventDefault()
         setMenu(prev => [...prev, {category: '', dish: ''}]);
     }
-
     const handleChangeCategory = (index, name) => {
         const copyMenu = menu.slice();
         copyMenu[index].category = name;
         setMenu(copyMenu);
     }
-
     const handleChangeDish = (index, name) => {
         const copyMenu = menu.slice();
         copyMenu[index].dish = name;
         setMenu(copyMenu);
     }
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        const menu1 = {
-            id: "",
+    const handleSubmit = (props) => {
+        db.collection("Menu").doc(`${props}`).set({
             date: date,
             description: description,
             dishes: menu,
-        };
-        fetch(`http://localhost:3000/menu`, {
-            method: "POST",
-            body: JSON.stringify(menu1),
-            headers: {
-                "Content-Type": "application/json"
-            }
         })
-            .then(response => fetchAllMenu());
-        setDescription("");
-        setDate("");
-        setMenu([]);
+            .then(function (docRef) {
+                history.push("/menuList")
+            })
+            .catch(function (error) {
+                // console.error("Error adding document: ", error);
+            });
     }
-
-
+    // const handleSubmit = (e) => {
+    //     e.preventDefault()
+    //     const menu1 = {
+    //         id: "",
+    //         date: date,
+    //         description: description,
+    //         dishes: menu,
+    //     };
+    //     fetch(`http://localhost:3000/menu`, {
+    //         method: "POST",
+    //         body: JSON.stringify(menu1),
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         }
+    //     })
+    //         .then(response => fetchAllMenu());
+    //     setDescription("");
+    //     setDate("");
+    //     setMenu([]);
+    // }
     return (
         <>
             <main className="newMenuMain mainPages">
                 <div className="newMenuDiv">
 
-                    <form className="newMenuForm" onSubmit={handleSubmit}>
+                    <form className="newMenuForm" onSubmit={(e) => {
+                        e.preventDefault()
+                        handleSubmit(date)
+                    }}>
 
-                        <h1>Dodaj nowe Menu na dzień:<input onChange={handleChangeDate} value={date} type="text" placeholder="DD:MM:YYYY"/></h1>
+                        <h1>Dodaj nowe Menu na dzień:<input onChange={handleChangeDate} value={date} type="date" placeholder="DD:MM:YYYY"/></h1>
 
                         <div className="menuDetails">
                             <label>Opis
@@ -99,7 +110,7 @@ export default function AddNewMenu() {
                                                 <select onChange={ e => handleChangeDish(index, e.target.value) } value={item.dish}>
                                                     <option></option>
                                                     {
-                                                        dishes.map(elem => (
+                                                        allDishes.map(elem => (
                                                             <option>{elem.name}</option>
                                                         ))
                                                     }

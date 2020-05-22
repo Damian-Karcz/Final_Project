@@ -1,30 +1,29 @@
 import React,{useState, useEffect} from 'react';
 import {useAPI} from "./useApi";
+import firebase from "firebase";
+import { useHistory } from 'react-router-dom';
 
 export default function AddNewDish() {
-    const {ingredients, fetchAllIngredients, fetchAllDishes, dishes} = useAPI();
+    const {allIngredients} = useAPI();
     const [dishData, setDishData] = useState({name:"", description:"", category:"", isVegan:false})
     const [dishInstructions, setDishInstructions] = useState([]);
     const [instructionName, setInstructionName] = useState("");
-
     const [dishIngredients, setDishIngredients] = useState([]);
     const [ingredient, setIngredient] = useState({name:"", quantity:""})
-
     const [message, setMessage] = useState("");
+    const history = useHistory();
 
+    // useEffect(()=> {
+    //     fetchAllIngredients();
+    // },[]);
 
-    useEffect(()=> {
-        fetchAllIngredients();
-    },[]);
-
-    useEffect(() => {
-        fetchAllDishes();
-    },[])
+    // useEffect(() => {
+    //     fetchAllDishes();
+    // },[])
 
     const handleDeleteClick = (index) => {
         setDishIngredients(prev => prev.filter((item, i) => index !== i ))
     }
-
     const handleDeleteClickInstr = (index) => {
         setDishInstructions(prev => prev.filter((item, i) => index !== i ))
     }
@@ -32,7 +31,7 @@ export default function AddNewDish() {
 
     //Dodanie podstawowych informacji do state
     const handleDishDataChange = ({target}) => {
-        setDishData(prev=>({...prev, [target.name]: target.type === 'checkbox' ? target.checked : target.value}))
+        setDishData(prev => ({...prev, [target.name]: target.type === 'checkbox' ? target.checked : target.value}))
     }
     //END
 
@@ -56,52 +55,75 @@ export default function AddNewDish() {
         setDishIngredients(prev => [...prev, {name: ingredient.name, quantity: ingredient.quantity}])
         setIngredient({name:"", quantity:""})
     }
+    const db = firebase.firestore();
 
-
-
-    // wysyłanie danych na server
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        if (dishData.name.length <3) {
-            setMessage("Nazwa dania musi mieć co najmniej 4 znaki")
-            return;
-        }if (dishData.description.length <5) {
-            setMessage("Opis dania musi mieć co najmniej 10 znaków")
-            return;
-        }if (dishData.category === "") {
+    const handleSubmit = (props) => {
+        if (dishData.category === "") {
             setMessage("Należy wybrać kategorie dania")
-            return;
+        } if (dishData.description.length <5) {
+                    setMessage("Opis dania musi mieć co najmniej 10 znaków")
+        } if (dishData.name.length < 3) {
+            setMessage("Nazwa dania musi mieć co najmniej 4 znaki")
+        } else {
+            db.collection("Dishes").doc(`${props}`).set({
+                name: dishData.name,
+                description: dishData.description,
+                category: dishData.category,
+                vege: dishData.isVegan,
+                ingredientsList: dishIngredients,
+                instruction: dishInstructions
+            })
+                .then(function (docRef) {
+                    history.push("/dishesList")
+
+                })
+                .catch(function (error) {
+                });
         }
-        const dishes = {
-            id: "",
-            name: dishData.name,
-            description: dishData.description,
-            category: dishData.category,
-            vege: dishData.isVegan,
-            ingredientsList: dishIngredients,
-            instruction: dishInstructions
-        };
-        fetch(`http://localhost:3000/dishes`, {
-            method: "POST",
-            body: JSON.stringify(dishes),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-            .then(response => fetchAllDishes());
-        setMessage("Danie zostało dodane");
-        setDishData({name:"", description:"", category:"", isVegan:false});
-        setDishInstructions([])
-        setDishIngredients([])
     }
-
-
+    // wysyłanie danych na JSONserver
+    // const handleSubmit = (event) => {
+    //     event.preventDefault();
+    //     if (dishData.name.length <3) {
+    //         setMessage("Nazwa dania musi mieć co najmniej 4 znaki")
+    //         return;
+    //     }if (dishData.description.length <5) {
+    //         setMessage("Opis dania musi mieć co najmniej 10 znaków")
+    //         return;
+    //     }if (dishData.category === "") {
+    //         setMessage("Należy wybrać kategorie dania")
+    //         return;
+    //     }
+    //     const dishes = {
+    //         id: "",
+    //         name: dishData.name,
+    //         description: dishData.description,
+    //         category: dishData.category,
+    //         vege: dishData.isVegan,
+    //         ingredientsList: dishIngredients,
+    //         instruction: dishInstructions
+    //     };
+    //     fetch(`http://localhost:3000/dishes`, {
+    //         method: "POST",
+    //         body: JSON.stringify(dishes),
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         }
+    //     })
+    //         .then(response => fetchAllDishes());
+    //     setMessage("Danie zostało dodane");
+    //     setDishData({name:"", description:"", category:"", isVegan:false});
+    //     setDishInstructions([])
+    //     setDishIngredients([])
+    // }
     return (
         <>
             <main className="newDishMain mainPages">
                 <div className="newDishContainer">
-                    <form className="newDishForm" onSubmit={handleSubmit}>
-
+                    <form className="newDishForm" onSubmit={(e) => {
+                        e.preventDefault()
+                        handleSubmit(dishData.name)
+                    }}>
                         <div className="dishData">
                             <h1>Dodaj nowe danie <input type="submit" value="Zapisz danie"/></h1>
                             {message && <p className="messageStyle">{message}</p>}
@@ -134,7 +156,7 @@ export default function AddNewDish() {
                                     <select value={ingredient.name} onChange={handleDishIngredient} name="name">
                                         <option></option>
                                         {
-                                            ingredients.map(element => (
+                                            allIngredients.map(element => (
                                                 <option key={element.id}>{element.name}</option>
                                             ))
                                         }
