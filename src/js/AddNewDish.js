@@ -13,14 +13,6 @@ export default function AddNewDish() {
     const [message, setMessage] = useState("");
     const history = useHistory();
 
-    // useEffect(()=> {
-    //     fetchAllIngredients();
-    // },[]);
-
-    // useEffect(() => {
-    //     fetchAllDishes();
-    // },[])
-
     const handleDeleteClick = (index) => {
         setDishIngredients(prev => prev.filter((item, i) => index !== i ))
     }
