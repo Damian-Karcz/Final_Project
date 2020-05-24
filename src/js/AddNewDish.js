@@ -42,6 +42,7 @@ export default function AddNewDish() {
     const handleDishIngredient = ({target}) => {
         setIngredient(prev=>({...prev, [target.name]: target.value}))
     }
+
     const handleDishIngredients = (e) => {
         e.preventDefault();
         setDishIngredients(prev => [...prev, {name: ingredient.name, quantity: ingredient.quantity}])
@@ -73,41 +74,7 @@ export default function AddNewDish() {
                 });
         }
     }
-    // wysyłanie danych na JSONserver
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     if (dishData.name.length <3) {
-    //         setMessage("Nazwa dania musi mieć co najmniej 4 znaki")
-    //         return;
-    //     }if (dishData.description.length <5) {
-    //         setMessage("Opis dania musi mieć co najmniej 10 znaków")
-    //         return;
-    //     }if (dishData.category === "") {
-    //         setMessage("Należy wybrać kategorie dania")
-    //         return;
-    //     }
-    //     const dishes = {
-    //         id: "",
-    //         name: dishData.name,
-    //         description: dishData.description,
-    //         category: dishData.category,
-    //         vege: dishData.isVegan,
-    //         ingredientsList: dishIngredients,
-    //         instruction: dishInstructions
-    //     };
-    //     fetch(`http://localhost:3000/dishes`, {
-    //         method: "POST",
-    //         body: JSON.stringify(dishes),
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         }
-    //     })
-    //         .then(response => fetchAllDishes());
-    //     setMessage("Danie zostało dodane");
-    //     setDishData({name:"", description:"", category:"", isVegan:false});
-    //     setDishInstructions([])
-    //     setDishIngredients([])
-    // }
+
     return (
         <>
             <main className="newDishMain mainPages">

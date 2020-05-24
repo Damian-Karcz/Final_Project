@@ -46,11 +46,21 @@ export default function EditDish() {
 
     const db = firebase.firestore();
     const handleSubmit = (props) => {
+        if (dishDataEdit.name.length <3) {
+            setMessage("Nazwa dania musi mieć co najmniej 4 znaki")
+            return;
+        }if (dishDataEdit.description.length <5) {
+            setMessage("Opis dania musi mieć co najmniej 10 znaków")
+            return;
+        }if (dishDataEdit.category === "") {
+            setMessage("Należy wybrać kategorie dania")
+            return;
+        }
             db.collection("Dishes").doc(`${props}`).set({
                 name: dishDataEdit.name,
                 description: dishDataEdit.description,
                 category: dishDataEdit.category,
-                // vege: dishDataEdit.isVegan,
+                vege: dishDataEdit.isVegan,
                 ingredientsList: [...dishDataEdit.ingredientsList, ...dishIngredientsEdit],
                 instruction: [...dishDataEdit.instruction, ...dishInstructionsEdit],
             })

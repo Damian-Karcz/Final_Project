@@ -5,23 +5,12 @@ import firebase from "firebase";
 
 
 export default function IngredientsList() {
-    // const {ingredients, fetchAllIngredients} = useAPI();
     const [filterText, setFilterText] = useState("");
     const [allIngredients, setAllIngredients] = useState([])
 
-    // useEffect(()=> {
-    //     fetchAllIngredients();
-    // },[]);
     const handleChange = event => {
         setFilterText(event.target.value);
     };
-    // const handleDelete = (props) => {
-    //     const API = "http://localhost:3000";
-    //     fetch(`${API}/ingredients/${props}`, {
-    //         method: "DELETE"
-    //     })
-    //         .then(fetchAllIngredients)
-    // }
     const db = firebase.firestore();
     useEffect( ( ) => {
         db.collection("Ingredients").get().then((querySnapshot) => {
@@ -40,7 +29,6 @@ export default function IngredientsList() {
             setAllIngredients(all)
         })
             .catch(function(error) {
-            // console.error("Error removing document: ", error);
         });
     }
     const addNew = (obj) => {

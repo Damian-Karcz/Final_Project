@@ -9,9 +9,6 @@ export default function DishList() {
     const [filterText, setFilterText] = useState("");
     const [filterCategory, setFilterCategory] = useState("")
 
-    // useEffect(()=> {
-    //     fetchAllDishes();
-    // },[]);
     const history = useHistory();
 
     const handleChange = event => {
@@ -20,23 +17,15 @@ export default function DishList() {
     const handleChangeCategory = event => {
         setFilterCategory(event.target.value);
     }
-    // const handleDelete = (props) => {
-    //     const API = "http://localhost:3000";
-    //     fetch(`${API}/dishes/${props}`, {
-    //         method: "DELETE"
-    //     })
-    //         .then(fetchAllDishes)
-    // }
-
     const db = firebase.firestore();
-    const handleDelete = (name1) => {
-        db.collection("Dishes").doc(`${name1}`).delete().then(function() {
+    const handleDelete = (name) => {
+        db.collection("Dishes").doc(`${name}`).delete().then(function() {
             alert("Document successfully deleted!")
-                .then( () => {
-                    const all = allDishes.filter( dish => dish.name !== name )
-                    setAllDishes(all)
-                })
-        }).catch(function(error) {
+        }).then ( () => {
+            const all = allDishes.filter(ingredient => ingredient.name !== name)
+            setAllDishes(all)
+        })
+        .catch(function(error) {
             console.error("Error removing document: ", error);
         });
     }
