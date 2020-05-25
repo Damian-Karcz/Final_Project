@@ -16,5 +16,25 @@
 </head>
 <body>
     <div id="app"></div>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDp6wGRU9cxJY8cYRcKMSFdebyL3oGIetQ",
+            authDomain: "mymenu-dd698.firebaseapp.com",
+            databaseURL: "https://mymenu-dd698.firebaseio.com",
+            projectId: "mymenu-dd698",
+            storageBucket: "mymenu-dd698.appspot.com",
+            messagingSenderId: "753609194520",
+            appId: "1:753609194520:web:5b4fe0d02f70cb68e3d76d"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
 <script type="text/javascript" src="js/out.js"></script></body>
 </html>
