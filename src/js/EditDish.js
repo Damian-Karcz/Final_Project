@@ -76,16 +76,6 @@ export default function EditDish() {
         setDishIngredientsEdit(prev => prev.filter((item, i) => index !== i ))
     }
 
-    // const handleDeleteEditClick = (props, index) => {
-    //     // const API = "http://localhost:3000";
-    //     // fetch(`${API}/dishes/${props}/${index}`, {
-    //     //     method: "DELETE"
-    //     // })
-    //     //     .then(fetchAllDishes)
-    //
-    //     setDishDataEdit(...prev => {prev.filter((item, i) => index !== i )})
-    // }
-
     const handleDeleteClickInstr = (index) => {
         setDishInstructionsEdit(prev => prev.filter((item, i) => index !== i ))
     }

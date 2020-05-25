@@ -1,13 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {HashRouter as Router, Link, Route, Switch} from 'react-router-dom';
+import {HashRouter as Router, Route, Switch} from 'react-router-dom';
 import MainPage from './MainPage'
 import '../sass/allStyles.scss';
 import HeaderPage from "./HeaderPage";
 import DishList from './DishList'
 import IngredientsList from "./IngredientsList";
 import MenuList from "./MenuList";
-import AddNewIngredient from "./AddNewIngredient";
 import AddNewDish from "./AddNewDish";
 import AddNewMenu from "./AddNewMenu";
 import EditDish from "./EditDish";
@@ -53,7 +52,7 @@ const App = () => {
 
 ReactDOM.render(
     <FirebaseContext.Provider value={new Firebase()}>
-        <App/>,
+        <App/>
     </FirebaseContext.Provider>,
     document.getElementById("app"));
 

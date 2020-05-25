@@ -5,7 +5,7 @@ import firebase from "firebase";
 
 
 export default function MenuList() {
-    const {allMenu, menu, fetchAllMenu} = useAPI();
+    const {allMenu, setAllMenu} = useAPI();
     const [filterText, setFilterText] = useState("");
     //
     // useEffect(()=> {
@@ -27,7 +27,9 @@ export default function MenuList() {
     const handleDelete = (date) => {
         db.collection("Menu").doc(`${date}`).delete().then(function() {
             alert("Document usunięty poprawnie")
-            history.push("/ingredientsList");
+        }).then ( () => {
+            const all = allMenu.filter(menu => menu.date !== date)
+            setAllMenu(all)
         }).catch(function(error) {
             alert("Błąd");
         });
@@ -46,8 +48,6 @@ export default function MenuList() {
                     </form>
                     <div className="menuList">
                         <p>Lista moich Menu:</p>
-                        {/*<div className="dishesListContainer">*/}
-                        {/*    <div className="dishesList">*/}
                                 <table className="ingredientsTable">
                                     <thead className="ingredientsTableHead">
                                         <tr>
@@ -60,12 +60,12 @@ export default function MenuList() {
                                     {
                                         allMenu.filter(el=> el.date.includes(filterText)).map(el => (
                                             <tr key={el.id}>
-                                                <th>{el.date}</th>
+                                                <th>{el.date}<br/>{el.description}</th>
                                                 <td className="tdList">{el.dishes.map(el=> (
                                                     <>
                                                         <div className="divCat">
                                                             <span>
-                                                                {el.category}
+                                                                {el.category}:
                                                             </span>
                                                             <span>
                                                                 {el.dish}

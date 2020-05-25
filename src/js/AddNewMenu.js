@@ -53,26 +53,6 @@ export default function AddNewMenu() {
                 // console.error("Error adding document: ", error);
             });
     }
-    // const handleSubmit = (e) => {
-    //     e.preventDefault()
-    //     const menu1 = {
-    //         id: "",
-    //         date: date,
-    //         description: description,
-    //         dishes: menu,
-    //     };
-    //     fetch(`http://localhost:3000/menu`, {
-    //         method: "POST",
-    //         body: JSON.stringify(menu1),
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         }
-    //     })
-    //         .then(response => fetchAllMenu());
-    //     setDescription("");
-    //     setDate("");
-    //     setMenu([]);
-    // }
     return (
         <>
             <main className="newMenuMain mainPages">
@@ -123,11 +103,8 @@ export default function AddNewMenu() {
                             }
                             </div>
                         </div>
-
                     </form>
-
                 </div>
-
             </main>
         </>
     )

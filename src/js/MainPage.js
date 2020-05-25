@@ -14,8 +14,7 @@ export default function MainPage() {
 
                     </div>
                     <div className="todayMenu">
-                        <h1>W przyszłości znajdziesz tu swoje Menu</h1>
-
+                        {/*<h1>W przyszłości znajdziesz tu swoje Menu</h1>*/}
                     </div>
                 </div>
             </main>

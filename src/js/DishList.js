@@ -20,9 +20,9 @@ export default function DishList() {
     const db = firebase.firestore();
     const handleDelete = (name) => {
         db.collection("Dishes").doc(`${name}`).delete().then(function() {
-            alert("Document successfully deleted!")
+            alert("Document usunięty poprawnie")
         }).then ( () => {
-            const all = allDishes.filter(ingredient => ingredient.name !== name)
+            const all = allDishes.filter(dish => dish.name !== name)
             setAllDishes(all)
         })
         .catch(function(error) {

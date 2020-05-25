@@ -156,7 +156,6 @@ export default function AddNewDish() {
                                 </div>
                         </div>
                     </form>
-
                 </div>
             </main>
         </>

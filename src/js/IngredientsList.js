@@ -15,7 +15,7 @@ export default function IngredientsList() {
     useEffect( ( ) => {
         db.collection("Ingredients").get().then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
-                console.log(`${doc.id} => ${doc.data()}`);
+                // console.log(`${doc.id} => ${doc.data()}`);
                 setAllIngredients( prev => ([...prev, doc.data()]))
             });
         });

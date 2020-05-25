@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("../images/cute-food-background-kawaii-cartoons-vector-20294906.jpg");
+  background-image: url("../images/menu-list-background.jpg");
   background-size: cover;
 }
 
@@ -41,17 +41,19 @@
 }
 
 .ingredientsTableBody {
-
+  th {
+    max-width: 7rem;
+  }
 }
 
 .divCat {
   display: flex;
   justify-content: space-between;
-  //background-color: #9a9797;
   margin-bottom: 1px;
   span {
     width: 50%;
-    border: 1px solid #AAAAAA;
+    border-bottom: 1px solid #AAAAAA;
+    margin-bottom: 3px;
   }
   //&.divCat:nth-child(even) {
   //  background: #0a88ad;
